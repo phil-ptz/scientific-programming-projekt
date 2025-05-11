@@ -1,0 +1,5 @@
+# Alles im Ordner data/AI/ ignorieren
+data/AI/
+
+# Alles im Ordner data/REAL/ ignorieren
+data/REAL/
