@@ -84,7 +84,7 @@ Entwicklung eines Machine-Learning-Modells, das zwischen echten (von Menschen er
 ## **6. Abnahmekriterien**
 - Das Modell erreicht eine Accuracy ≥ 85% auf einem separaten Testset.
 - Die Dokumentation ist vollständig (Code, Trainingsprotokolle, Evaluierung).
-- Eine Demo (z. B. Jupyter Notebook oder Streamlit-App) liegt vor.
+- Eine Demo (z. B. Jupyter Notebook) liegt vor.
 
 ---
 
