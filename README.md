@@ -6,11 +6,11 @@ Ordner "data/AI" und "data/REAL" erstellen. Datensätze (Bilder) ind die entspre
 
 ## **1. Projektübersicht**
 ### **1.1 Projektziel**
-Entwicklung eines Machine-Learning-Modells, das zwischen echten (von Menschen erstellten) und KI-generierten Bildern unterscheiden kann. Das Modell soll auf einem frei wählbaren Ansatz basieren (z. B. CNN, Transformer, GAN-basierte Klassifikation).
+Entwicklung eines Machine-Learning-Modells, das zwischen echten (von Menschen erstellten) und KI-generierten Bildern unterscheiden kann. Technologien die Beispielsweise verwendet werden können: CNN-Klassifizierung, Anomalieerkennung.
 
 ### **1.2 Anwendungsbereich**
-- Erkennung von Deepfakes und synthetischen Bildern (z. B. generiert durch Stable Diffusion, DALL·E, MidJourney)
-- Mögliche Einsatzgebiete: Forensik, Content-Moderation, Authentizitätsprüfung
+- Erkennung von Deepfakes und synthetischen Bildern (z. B. generiert durch ChatGPT, DALL·E, MidJourney)
+- Mögliche Einsatzgebiete: FakeNews-Erkennung, Qualität von Generierten Bildern bestimmen
 
 ---
 
@@ -18,56 +18,44 @@ Entwicklung eines Machine-Learning-Modells, das zwischen echten (von Menschen er
 ### **2.1 Funktionale Anforderungen**
 | **ID** | **Anforderung** | **Beschreibung** |
 |--------|-----------------|------------------|
-| FR-01  | Datensammlung   | Beschaffung eines ausgewogenen Datensatzes mit echten und KI-generierten Bildern. |
-| FR-02  | Datenvorverarbeitung | Bereinigung, Normalisierung und Augmentierung der Bilddaten. |
-| FR-03  | Modellauswahl    | Auswahl eines geeigneten ML/DL-Modells (z. B. CNN, Vision Transformer, Hybridmodell). |
-| FR-04  | Modelltraining   | Training des Modells mit Trainings- und Validierungsdaten. |
-| FR-05  | Evaluierung      | Bewertung der Modelleistung mittels Metriken (Accuracy, Precision, Recall, F1-Score, ROC-AUC). |
-| FR-06  | Inferenz        | Bereitstellung einer Methode zur Klassifikation neuer Bilder (Echt vs. KI-generiert). |
-| FR-07  | Interpretierbarkeit | Optional: Erklärbarkeit der Entscheidungen (z. B. mittels Grad-CAM, SHAP). |
+| 01  | Datensammlung   | Beschaffung eines ausgewogenen Datensatzes mit echten und KI-generierten Bildern. |
+| 02  | Datenvorverarbeitung | Bereinigung, Normalisierung und Augmentierung der Bilddaten. |
+| 03  | Modellauswahl    | Auswahl eines geeigneten ML/DL-Modells (z. B. CNN, Vision Transformer, Hybridmodell). |
+| 04  | Modelltraining   | Training des Modells mit Trainings- und Validierungsdaten. |
+| 05  | Evaluierung      | Bewertung der Modelleistung mittels Metriken (Accuracy, Precision). |
+| 06  | Inferenz        | Bereitstellung einer Methode zur Klassifikation neuer Bilder (Echt vs. KI-generiert). |
 
 ### **2.2 Nicht-funktionale Anforderungen**
 | **ID** | **Anforderung** | **Beschreibung** |
 |--------|-----------------|------------------|
-| NF-01  | Performance     | Das Modell soll eine Accuracy von mindestens 85% auf Testdaten erreichen. |
-| NF-02  | Skalierbarkeit  | Das Modell sollte auf neuen Datensätzen anpassbar sein. |
-| NF-03  | Laufzeit       | Inferenzzeit pro Bild < 500 ms (abhängig von Hardware). |
-| NF-04  | Robustheit     | Das Modell sollte gegen kleine Bildmanipulationen robust sein. |
+| 01  | Performance     | Das Modell soll eine Accuracy von mindestens 85% auf Testdaten erreichen. |
+| 02  | Skalierbarkeit  | Das Modell sollte auf neuen Datensätzen anpassbar sein. |
+| 03  | Laufzeit       | Möglichst geringe Rechenzeit. |
+| 04  | Robustheit     | Das Modell sollte gegen kleine Bildmanipulationen robust sein. |
 
 ---
 
 ## **3. Projektplanung**
 ### **3.1 Meilensteine**
-| **Meilenstein** | **Beschreibung** | **Zieltermin** |
-|-----------------|------------------|----------------|
-| M1 | Datensatzbeschaffung & -aufbereitung | [Datum] |
-| M2 | Modellauswahl & -implementierung | [Datum] |
-| M3 | Training & Hyperparameter-Optimierung | [Datum] |
-| M4 | Evaluierung & Dokumentation | [Datum] |
-| M5 | Präsentation & Abschluss | [Datum] |
-
-### **3.2 Verantwortlichkeiten**
-| **Rolle** | **Aufgabe** |
-|-----------|-------------|
-| Projektleitung | Koordination, Zeitmanagement |
-| Datenverarbeitung | Datensammlung, Preprocessing |
-| Modellentwicklung | Implementierung & Training |
-| Evaluierung | Metriken, Testläufe |
-| Dokumentation | Protokollierung, Präsentation |
+| **Meilenstein** | **Beschreibung** |
+|-----------------|------------------|
+| M1 | Datensatzbeschaffung & -aufbereitung |
+| M2 | Modellauswahl & -implementierung |
+| M3 | Training & Hyperparameter-Optimierung |
+| M4 | Evaluierung & Dokumentation |
+| M5 | Präsentation & Abschluss |
 
 ---
 
 ## **4. Technische Spezifikationen**
 ### **4.1 Tools & Frameworks**
 - **Programmiersprache:** Python
-- **Bibliotheken:** TensorFlow/Keras, PyTorch, OpenCV, scikit-learn
+- **Bibliotheken:** Pytorch
 - **Datenverarbeitung:** Pandas, NumPy
-- **Visualisierung:** Matplotlib, Seaborn
-- **Optional:** Weights & Biases (W&B) für Experiment-Tracking
+- **Visualisierung:** Matplotlib, Django (für einen Webserver)
 
 ### **4.2 Hardware**
 - **Training:** GPU-Unterstützung (z. B. Google Colab, lokale GPU)
-- **Inferenz:** CPU/GPU je nach Modellgröße
 
 ---
 
@@ -85,6 +73,7 @@ Entwicklung eines Machine-Learning-Modells, das zwischen echten (von Menschen er
 - Das Modell erreicht eine Accuracy ≥ 85% auf einem separaten Testset.
 - Die Dokumentation ist vollständig (Code, Trainingsprotokolle, Evaluierung).
 - Eine Demo (z. B. Jupyter Notebook) liegt vor.
+- Visualisierung auf einem Django-Server
 
 ---
 
