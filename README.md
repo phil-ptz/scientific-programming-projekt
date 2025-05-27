@@ -93,11 +93,3 @@ Entwicklung eines Machine-Learning-Modells, das zwischen echten (von Menschen er
 - **Code- & Dokumentationsabgabe** (GitHub-Repository)
 - **Reflexion** über mögliche Verbesserungen
 
----
-
-**Genehmigt durch:** [Name]  
-**Datum:** [Datum]  
-
----
-
-Dieses Pflichtenheft dient als Grundlage für die Projektdurchführung. Änderungen werden im Team abgestimmt und dokumentiert.
