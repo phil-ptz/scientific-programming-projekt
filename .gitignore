@@ -3,3 +3,5 @@ data/AI/
 
 # Alles im Ordner data/REAL/ ignorieren
 data/REAL/
+
+sp_server/image_database/data/

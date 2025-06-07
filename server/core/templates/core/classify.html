@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Bildklassifikation</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bildklassifikation</h1>
+
+        {% if not image_url %}
+        <p>Lade ein Bild hoch, das vom ML-Modell klassifiziert werden soll.</p>
+
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <label for="file-upload" class="upload-area" id="drop-area">
+                    <p>Hier klicken oder Bild per Drag & Drop ablegen</p>
+                    <input type="file" name="image" id="file-upload" accept="image/*">
+                    <p id="upload-feedback" style="margin-top: 1rem; font-weight: bold; color: green;"></p>
+                    <img id="preview-image" src="" alt="Vorschau"
+                        style="display:none; margin-top:1rem; max-width:100%; max-height:30px; height:auto; border-radius:8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); object-fit: contain;">
+                </label>
+                <br><br>
+                <button type="submit" class="btn">Klassifizieren</button>
+            </form>
+        {% endif %}
+
+        {% if image_url %}
+            <div style="margin-top: 2rem;">
+                <h2>Ausgewähltes Bild:</h2>
+                <img src="{{ image_url }}" alt="Hochgeladenes Bild" style="max-width: 100%; max-height: 300px; border-radius: 8px; margin-top: 1rem;">
+            </div>
+        {% endif %}
+
+        {% if label %}
+            <div style="margin-top: 2rem;">
+                <h2>Vorhersage:</h2>
+                <p style="font-size: 1.5rem; color: #007bff;">{{ label }}</p>
+            </div>
+        {% endif %}
+
+
+        <div class="nav-buttons" style="margin-top: 2rem;">
+            {% if not image_url %}
+                <a href="{% url 'home' %}" class="btn">Zurück zur Startseite</a>
+            {% else %}
+                <a href="{% url 'database' %}" class="btn">Zurück zur Datenbank</a>
+            {% endif %}
+        </div>
+    </div>
+
+     <script>
+        const dropArea = document.getElementById('drop-area');
+        const fileInput = document.getElementById('file-upload');
+        const feedback = document.getElementById('upload-feedback');
+
+        dropArea.addEventListener('click', () => fileInput.click());
+
+        dropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropArea.classList.add('dragover');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('dragover');
+        });
+
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.classList.remove('dragover');
+            fileInput.files = e.dataTransfer.files;
+            updateFeedback();
+        });
+
+        fileInput.addEventListener('change', updateFeedback);
+
+        function updateFeedback() {
+            if (fileInput.files.length > 0) {
+                feedback.textContent = `Ausgewählt: ${fileInput.files[0].name}`;
+            } else {
+                feedback.textContent = '';
+            }
+        }
+
+        const previewImage = document.getElementById('preview-image');
+
+        function updateFeedback() {
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                feedback.textContent = `Ausgewählt: ${file.name}`;
+
+                // Nur anzeigen, wenn es wirklich ein Bild ist
+                if (file.type.startsWith("image/")) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                        previewImage.style.display = 'block';
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    previewImage.style.display = 'none';
+                }
+            } else {
+                feedback.textContent = '';
+                previewImage.style.display = 'none';
+            }
+        }
+
+    </script>
+
+</body>
+</html>

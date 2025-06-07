@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Bilder-Klassifizierungs-Projekt</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Willkommen zur Demo unseres Projektes</h1>
+        <p>Erfahre, welche Ziele wir verfolgen, wie wir unser Modell trainiert haben und lasse deine eigenen Bilder vom Modell klassifizieren.</p>
+        <p style="font-size: small;">Projekt von Phil Potratz, Julian Blönnignen, Felix Luck, Marius Gutschalk und Jannes Süß</p>
+
+        <div class="nav-buttons">
+            <a href="{% url 'introduction' %}" class="btn">Einführung</a>
+            <a href="{% url 'training' %}" class="btn">Training</a>
+            <a href="{% url 'classify' %}" class="btn">Klassifizieren</a>
+            <a href="{% url 'database' %}" class="btn">Datensatz</a>
+        </div>
+    </div>
+</body>
+</html>

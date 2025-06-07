@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Einführung</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Einführung in das Projekt</h1>
+        <p>Dieses Projekt zeigt, wie ein Machine-Learning-Modell trainiert und eingesetzt wird, um Klassifikationen durchzuführen. Es ist in Django umgesetzt und dient sowohl zur Visualisierung als auch zur Interaktion.</p>
+        
+        <p>Die Seite führt dich durch folgende Schritte:</p>
+        <ul>
+            <li>Training des Modells mit einem Beispiel-Datensatz</li>
+            <li>Verwendung des trainierten Modells für Klassifikationen</li>
+            <li>Visualisierung des Datensatzes</li>
+        </ul>
+
+        <div class="nav-buttons">
+            <a href="{% url 'home' %}" class="btn">Zurück zur Startseite</a>
+            <a href="{% url 'training' %}" class="btn">Weiter zum Training</a>
+        </div>
+    </div>
+</body>
+</html>
