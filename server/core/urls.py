@@ -8,4 +8,6 @@ urlpatterns = [
     path('classify/', views.classify, name='classify'),
     path('klassifizieren/<int:bild_id>/', views.classify_existing_image, name='klassifizieren_bild'),
     path('database/', views.database, name='database'),
+    path('classify-notebook/', views.classify_notebook, name='classify-notebook'),
+    path('pflichtenheft/', views.pflichtenheft, name='pflichtenheft'),
 ]

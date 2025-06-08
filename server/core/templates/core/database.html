@@ -46,8 +46,9 @@
 </head>
 <body>
     <div class="container">
-        <h1>Bildergalerie</h1>
-        <p>Anschauliche Darstellung der Bilder, nach Label sortiert.</p>
+        <h1>Bilder-Datenbank</h1>
+        <p>Hier ist ein Teil der Trainingsdatenbank dargestellt. Die echte Datenbank besteht aus 140k Bildern und ist von Kaggle: https://www.kaggle.com/datasets/xhlulu/140k-real-and-fake-faces/.</p>
+        <p>Klicken Sie auf ein Bild um es klassifizieren zu lassen!</p>
 
         {% for label, bilder_liste in gruppen.items %}
         <div class="gallery-group">

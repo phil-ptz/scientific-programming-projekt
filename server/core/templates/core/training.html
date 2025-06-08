@@ -1,0 +1,22 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Training</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <style>
+        iframe { width: 100%; border: none; }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin: 10px auto;">
+        <h1>Trainings-Notebook</h1>
+        <p>Dieses Notebook wurde genutzt um unser Modell zu trainieren. Das Training haben wir mit Google Colab durchgeführt (https://colab.research.google.com). Dabei haben wir den A100 GPU genutzt, welcher eine leistungsstarke Server-Grafikeinheit ist. Dank dieser Möglichkeit hat das Training nur ca. 5 Stunden gedauert, um die Genauigkeit des Modells auf 95% zu bringen.</p>
+        <a href="{% url 'home' %}" class="btn">Zurück zur Startseite</a>
+    </div>
+
+    <iframe src="{% static 'notebooks/training_nb.html' %}" height="1200"></iframe>
+</body>
+</html>

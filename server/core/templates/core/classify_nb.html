@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Klassifizierung</title>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <style>
+        iframe { width: 100%; border: none; }
+    </style>
+</head>
+<body>
+    <div class="container" style="margin: 10px auto;">
+        <h1 style="padding: 10px">Klassifizierungs-Notebook</h1>
+        <a href="{% url 'home' %}" class="btn">Zurück</a>
+    </div>
+
+    <iframe src="{% static 'notebooks/training_nb.html' %}" height="1200"></iframe>
+</body>
+</html>

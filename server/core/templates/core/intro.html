@@ -9,18 +9,33 @@
 <body>
     <div class="container">
         <h1>Einführung in das Projekt</h1>
-        <p>Dieses Projekt zeigt, wie ein Machine-Learning-Modell trainiert und eingesetzt wird, um Klassifikationen durchzuführen. Es ist in Django umgesetzt und dient sowohl zur Visualisierung als auch zur Interaktion.</p>
+        <p>Unser Ziel für dieses Projekt war es echte Bilder von KI-generierten Bildern zu unterscheiden:</p>
+        <a href="{% url 'pflichtenheft' %}">Link zum Pflichtenheft</a>
+        <p>
+            Wir haben uns entschieden nur Bilder von Gesichtern zu nutzen. Für unser Problem haben wir Pytorch genutzt und
+            darin ein Convolutional Neural Network (CNN) trainiert. Das CNN ist ein neuronales Netzwerk, das speziell für 
+            die Verarbeitung von Bilddaten entwickelt wurde und in der Lage ist, Merkmale aus Bildern zu extrahieren und 
+            zu klassifizieren. Das CNN wurde mit einem Datensatz trainiert, der echte und KI-generierte Bilder von Gesichtern enthält.
+        </p>
+        <p>
+            Das trainierte Modell wurde als pth-Datei gespeichert und kann beliebig selber genutzt werden, um Bilder zu klassifizieren.
+            Wie das funktioniert, wird im <a href="{% url 'classify-notebook' %}">Klassifizierungs-Notebook</a> erklärt.
+        </p>
+        <p>
+            Das Projekt besteht aus einem Django-Server, der es ermöglicht, Bilder hochzuladen und sie vom trainierten Modell klassifizieren zu lassen. 
+            Der Server bietet eine einfache Benutzeroberfläche, um Bilder hochzuladen und die Vorhersagen des Modells anzuzeigen.
+        </p>
+
         
-        <p>Die Seite führt dich durch folgende Schritte:</p>
+        <p>Auf diesem Django-Server werden folgende Punkte unseres Projektes veranschaulicht:</p>
         <ul>
-            <li>Training des Modells mit einem Beispiel-Datensatz</li>
-            <li>Verwendung des trainierten Modells für Klassifikationen</li>
-            <li>Visualisierung des Datensatzes</li>
+            <li>Vorstellung und Erklärung des Trainings-Notebooks</li>
+            <li>Klassifizierung von einzelnen Bildern</li>
+            <li>Visualisierung von einem Teil des Datensatzes</li>
         </ul>
 
         <div class="nav-buttons">
             <a href="{% url 'home' %}" class="btn">Zurück zur Startseite</a>
-            <a href="{% url 'training' %}" class="btn">Weiter zum Training</a>
         </div>
     </div>
 </body>
