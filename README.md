@@ -1,4 +1,6 @@
 # **Pflichtenheft: KI zur Erkennung von echten und KI-generierten Bildern**
+von Felix Luck, Jannes Süss, Julian Blönnigen, Marius Gutschalk und Phil Potratz
+Wir bitten um eine Gruppenbewertung.
 
 ## **1. Projektübersicht**
 ### **1.1 Projektziel**
